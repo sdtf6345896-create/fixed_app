@@ -1,0 +1,336 @@
+/* ========================================
+   待辦事項管理器 - 主要樣式
+   ======================================== */
+
+/* === 基礎重置 === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* === 容器 === */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+/* === 頭部 === */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+/* === 新增任務表單 === */
+.add-task-form {
+    padding: 30px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* === 按鈕 === */
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* === 篩選器 === */
+.filters {
+    padding: 20px 30px;
+    background: #f8f9fa;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+/* === 任務列表 === */
+.tasks-list {
+    padding: 30px;
+    min-height: 300px;
+}
+
+.task-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.task-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.task-item.completed {
+    opacity: 0.6;
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+}
+
+.task-item.priority-high {
+    border-left-color: #e74c3c;
+}
+
+.task-item.priority-medium {
+    border-left-color: #f39c12;
+}
+
+.task-item.priority-low {
+    border-left-color: #3498db;
+}
+
+/* === 任務內容 === */
+.task-checkbox {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.task-description {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.task-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.85em;
+    color: #999;
+}
+
+/* === 優先級徽章 === */
+.priority-badge {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.priority-high {
+    background: #ffe5e5;
+    color: #e74c3c;
+}
+
+.priority-medium {
+    background: #fff3e0;
+    color: #f39c12;
+}
+
+.priority-low {
+    background: #e3f2fd;
+    color: #3498db;
+}
+
+/* === 任務操作按鈕 === */
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 0.85em;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-edit {
+    background: #3498db;
+    color: white;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-small:hover {
+    transform: scale(1.05);
+}
+
+/* === 空狀態 === */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.empty-state svg {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+/* === Modal 彈窗 === */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-cancel {
+    background: #95a5a6;
+    color: white;
+    flex: 1;
+}
+
+.btn-save {
+    background: #667eea;
+    color: white;
+    flex: 1;
+}
